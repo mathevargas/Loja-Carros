@@ -45,9 +45,8 @@ class CarrosController extends Controller
         //..persiste o model na base de dados
         $carros->save();
         //..retorna a view com uma variável msg que será tratada na própria view
-        $vehicles = Carros::all();
-        return view('carros.index')->with('carros', $carros)
-            ->with('msg', 'Carro cadastrado com sucesso!');
+        $carros = Carros::all();
+        return redirect()->route('carros.index');
     }
 
     /**
@@ -118,7 +117,6 @@ class CarrosController extends Controller
         $carros->delete();
         //..retorna à view index.
         $carros = Carros::all();
-        return view('carros.index')->with('carros', $carros)
-            ->with('msg', "Carros excluído com sucesso!");
+        return redirect()->route('carros.index');
     }
 }
