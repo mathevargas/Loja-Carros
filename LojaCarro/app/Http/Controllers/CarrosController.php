@@ -117,6 +117,7 @@ class CarrosController extends Controller
         $carros->delete();
         //..retorna à view index.
         $carros = Carros::all();
-        return redirect()->route('carros.index');
+        return view('carros.index')->with('carros', $carros)
+            ->with('msg', "Carros excluído com sucesso!");
     }
 }
