@@ -7,9 +7,7 @@ use Illuminate\Http\Request;
 
 class CarrosController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         //..recuperando os carros do banco de dados
@@ -18,18 +16,14 @@ class CarrosController extends Controller
         return view('carros.index')->with('carros', $carros);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+
     public function create()
     {
         //..mostrando o formulário de cadastro
         return view('carros.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
         //..instancia um novo model Carros
@@ -49,9 +43,7 @@ class CarrosController extends Controller
         return redirect()->route('carros.index');
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show(string $id)
     {
         //..recupera o carro da base de dados
@@ -65,9 +57,7 @@ class CarrosController extends Controller
         }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+
     public function edit(string $id)
     {
         //..recupera o carro da base de dados
@@ -83,9 +73,7 @@ class CarrosController extends Controller
         }
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(Request $request, string $id)
     {
         //..recupera o carros mediante o id
@@ -106,9 +94,7 @@ class CarrosController extends Controller
             ->with('msg', 'Carro atualizado com sucesso!');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
+
     public function destroy(string $id)
     {
         //..recupeara o recurso a ser excluído
